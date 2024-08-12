@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raghul M - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+        .gradient-bg {
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+        }
+        .active-nav {
+            border-bottom: 2px solid white;
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        #scroll-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            cursor: pointer;
+        }
+        @keyframes gradientAnimation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .animated-gradient {
+            background: linear-gradient(270deg, #4b6cb7, #182848, #4b6cb7);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <nav class="gradient-bg text-white p-4 sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Raghul M</a>
+            <ul class="hidden md:flex space-x-4">
+                <li><a href="index.html" class="hover:text-gray-300 active-nav">Home</a></li>
+                <li><a href="skills.html" class="hover:text-gray-300">Skills</a></li>
+                <li><a href="projects.html" class="hover:text-gray-300">Projects</a></li>
+                <li><a href="education.html" class="hover:text-gray-300">Education</a></li>
+                <li><a href="certificates.html" class="hover:text-gray-300">Certificates</a></li>
+            </ul>
+            <button class="md:hidden" id="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <ul class="flex flex-col space-y-2 mt-4">
+                <li><a href="index.html" class="block py-2 px-4 text-sm hover:bg-blue-700">Home</a></li>
+                <li><a href="skills.html" class="block py-2 px-4 text-sm hover:bg-blue-700">Skills</a></li>
+                <li><a href="projects.html" class="block py-2 px-4 text-sm hover:bg-blue-700">Projects</a></li>
+                <li><a href="education.html" class="block py-2 px-4 text-sm hover:bg-blue-700">Education</a></li>
+                <li><a href="certificates.html" class="block py-2 px-4 text-sm hover:bg-blue-700">Certificates</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home" class="animated-gradient text-white py-20 relative">
+        <div id="particles-js" class="absolute top-0 left-0 w-full h-full"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <img src="IMG.jpg" alt="Raghul M" class="rounded-full mx-auto mb-8 border-4 border-white shadow-lg">
+            <h1 class="text-5xl font-bold mb-4 animate-typing"></h1>
+            <p class="text-xl mb-8">Computer Science Engineer | Python Developer | Web Enthusiast</p>
+            <div class="flex justify-center space-x-4">
+                <a href="mailto:raghul.m2.2002@gmail.com" class="bg-white text-blue-600 px-6 py-2 rounded-full hover:bg-blue-100 transition duration-300">
+                    <i class="far fa-envelope mr-2"></i>Email Me
+                </a>
+                <a href="https://github.com/yourgithub" class="bg-gray-800 text-white px-6 py-2 rounded-full hover:bg-gray-700 transition duration-300">
+                    <i class="fab fa-github mr-2"></i>GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/yourlinkedin" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">
+                    <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-20">
+        <div class="container mx-auto">
+            <section id="about" class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center"><i class="fas fa-user mr-2"></i>About Me</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto">
+                    I'm a passionate Computer Science Engineer with a keen interest in Python development and web technologies. 
+                    My goal is to create efficient, scalable solutions that make a positive impact in the world of technology.
+                </p>
+            </section>
+            <section id="portfolio-sections">
+                <h2 class="text-3xl font-bold mb-8 text-center"><i class="fas fa-folder-open mr-2"></i>Portfolio Sections</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <a href="skills.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 card-hover">
+                        <h2 class="text-2xl font-semibold mb-4"><i class="fas fa-code mr-2 text-blue-600"></i>Skills</h2>
+                        <p>Explore my technical expertise and proficiencies.</p>
+                    </a>
+                    <a href="projects.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 card-hover">
+                        <h2 class="text-2xl font-semibold mb-4"><i class="fas fa-project-diagram mr-2 text-green-600"></i>Projects</h2>
+                        <p>View my portfolio of completed and ongoing projects.</p>
+                    </a>
+                    <a href="education.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 card-hover">
+                        <h2 class="text-2xl font-semibold mb-4"><i class="fas fa-graduation-cap mr-2 text-yellow-600"></i>Education</h2>
+                        <p>Learn about my academic background and qualifications.</p>
+                    </a>
+                    <a href="certificates.html" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300 card-hover">
+                        <h2 class="text-2xl font-semibold mb-4"><i class="fas fa-certificate mr-2 text-purple-600"></i>Certificates</h2>
+                        <p>Check out my professional certifications and achievements.</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="gradient-bg text-white py-8">
+        <div class="container mx-auto text-center">
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="https://x.com/19csr080" class="text-2xl hover:text-gray-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/raghul.astro.7/" class="text-2xl hover:text-gray-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/raghul.m2/" class="text-2xl hover:text-gray-300"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2024 Raghul M. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="scroll-to-top" class="bg-blue-600 text-white p-3 rounded-full">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Scroll to top functionality
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scroll-to-top").style.display = "block";
+            } else {
+                document.getElementById("scroll-to-top").style.display = "none";
+            }
+        };
+
+        document.getElementById("scroll-to-top").addEventListener("click", function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+
+        // Particles.js configuration
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" }, polygon: { nb_sides: 5 } },
+                opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+            },
+            retina_detect: true
+        });
+
+        // Typing animation
+        const text = "Raghul M";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.querySelector("h1").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 150);
+            }
+        }
+        window.onload = typeWriter;
+    </script>
+</body>
+</html>
