@@ -11,16 +11,21 @@
         body {
             font-family: 'Poppins', sans-serif;
             font-size: 16px;
+            background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
         }
         .gradient-bg {
-            background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
+            background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
         }
         .active-nav {
-            border-bottom: 2px solid white;
+            border-bottom: 2px solid #ffd700;
+            color: #ffd700 !important;
         }
         .card-hover:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(75,108,183,0.15);
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            color: #222;
         }
         #scroll-to-top {
             display: none;
@@ -29,6 +34,102 @@
             right: 30px;
             z-index: 99;
             cursor: pointer;
+            box-shadow: 0 4px 12px rgba(75,108,183,0.2);
+        }
+        @keyframes gradientAnimation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .animated-gradient {
+            background: linear-gradient(270deg, #4b6cb7, #182848, #4b6cb7);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            box-shadow: 0 6px 24px rgba(75,108,183,0.18);
+        }
+        .profile-img:hover {
+            transform: scale(1.12);
+            box-shadow: 0 12px 32px rgba(253,160,133,0.18);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .modal-close:focus {
+            outline: none;
+        }
+        .modal-content {
+            pointer-events: none;
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .rotate-3d {
+            transform: perspective(1000px) rotateY(20deg);
+            transition: transform 0.5s ease;
+        }
+        .rotate-3d:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 768px) {
+            .container { padding-left: 1rem; padding-right: 1rem; }
+            .grid-cols-2, .grid-cols-4 { grid-template-columns: 1fr; }
+            .profile-img { width: 110px; height: 110px; }
+            .text-5xl { font-size: 2.25rem; }
+        }
+        @media (max-width: 480px) {
+            .container { padding-left: 0.5rem; padding-right: 0.5rem; }
+            .profile-img { width: 80px; height: 80px; }
+            .text-3xl { font-size: 1.5rem; }
+            .text-2xl { font-size: 1.125rem; }
         }
     </style>
 </head>
@@ -64,31 +165,30 @@
         </div>
     </header>
 
-    <main class="container mx-auto py-12">
+    <main class="container mx-auto py-12 pb-40">
         <div class="grid grid-cols-1 gap-8">
             <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                <h2 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-university mr-2"></i>Bachelor of Engineering (B.E) CS</h2>
-                <p><strong>Institution:</strong> Velalar College of Engineering and Technology</p>
-                <p><strong>Year:</strong> 2019-2023</p>
-                <p><strong>Specialization:</strong> Computer Science and Engineering</p>
+                <h2 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-university mr-2"></i>Bachelor of Engineering (B.E), Computer Science</h2>
+                <p><strong>Institution:</strong> Velalar College of Engineering and Technology, Tamil Nadu</p>
+                <p><strong>Year:</strong> 2019 – 2023</p>
                 <p><strong>CGPA:</strong> 7.80</p>
             </div>
             <div class="bg-white p-6 rounded-lg shadow-md card-hover">
                 <h2 class="text-2xl font-semibold mb-4 text-green-600"><i class="fas fa-school mr-2"></i>Higher Secondary Certificate (HSC)</h2>
-                <p><strong>Institution:</strong> Grace Matric Hr.Sec School</p>
+                <p><strong>Institution:</strong> Grace Matric Hr. Sec School</p>
                 <p><strong>Year:</strong> 2019</p>
                 <p><strong>Percentage:</strong> 63.33%</p>
             </div>
             <div class="bg-white p-6 rounded-lg shadow-md card-hover">
                 <h2 class="text-2xl font-semibold mb-4 text-yellow-600"><i class="fas fa-book mr-2"></i>Secondary School Leaving Certificate (SSLC)</h2>
-                <p><strong>Institution:</strong> Sri Vasavi Matriculation Higher Secondary School</p>
+                <p><strong>Institution:</strong> Sri Vasavi Matric Hr. Sec School</p>
                 <p><strong>Year:</strong> 2017</p>
                 <p><strong>Percentage:</strong> 76.80%</p>
             </div>
         </div>
     </main>
 
-    <footer class="gradient-bg text-white py-8">
+    <footer class="gradient-bg text-white py-8 fixed bottom-0 left-0 w-full" style="z-index:10;">
         <div class="container mx-auto text-center">
             <div class="flex justify-center space-x-4 mb-4">
                 <a href="https://x.com/19csr080" class="text-2xl hover:text-gray-300"><i class="fab fa-twitter"></i></a>

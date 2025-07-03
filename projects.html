@@ -11,16 +11,21 @@
         body {
             font-family: 'Poppins', sans-serif;
             font-size: 16px;
+            background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
         }
         .gradient-bg {
             background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
         }
         .active-nav {
-            border-bottom: 2px solid white;
+            border-bottom: 2px solid #ffd700;
+            color: #ffd700 !important;
         }
         .card-hover:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(75,108,183,0.15);
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            color: #222;
         }
         #scroll-to-top {
             display: none;
@@ -29,6 +34,102 @@
             right: 30px;
             z-index: 99;
             cursor: pointer;
+            box-shadow: 0 4px 12px rgba(75,108,183,0.2);
+        }
+        @keyframes gradientAnimation {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        .animated-gradient {
+            background: linear-gradient(270deg, #4b6cb7, #182848, #4b6cb7);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            box-shadow: 0 6px 24px rgba(75,108,183,0.18);
+        }
+        .profile-img:hover {
+            transform: scale(1.12);
+            box-shadow: 0 12px 32px rgba(253,160,133,0.18);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .modal-close:focus {
+            outline: none;
+        }
+        .modal-content {
+            pointer-events: none;
+        }
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .rotate-3d {
+            transform: perspective(1000px) rotateY(20deg);
+            transition: transform 0.5s ease;
+        }
+        .rotate-3d:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 768px) {
+            .container { padding-left: 1rem; padding-right: 1rem; }
+            .grid-cols-2, .grid-cols-4 { grid-template-columns: 1fr; }
+            .profile-img { width: 110px; height: 110px; }
+            .text-5xl { font-size: 2.25rem; }
+        }
+        @media (max-width: 480px) {
+            .container { padding-left: 0.5rem; padding-right: 0.5rem; }
+            .profile-img { width: 80px; height: 80px; }
+            .text-3xl { font-size: 1.5rem; }
+            .text-2xl { font-size: 1.125rem; }
         }
     </style>
 </head>
@@ -64,40 +165,40 @@
         </div>
     </header>
 
-    <main class="container mx-auto py-12">
+    <main class="container mx-auto py-12 pb-40">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <a href="project1.html" class="bg-white p-6 rounded-lg shadow-md card-hover">
-                <h2 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-newspaper mr-2"></i>Fake Media Detection</h2>
-                <p>NLP and Blockchain Approaches</p>
+                <h2 class="text-2xl font-semibold mb-4 text-blue-600"><i class="fas fa-newspaper mr-2"></i>Main Project – Fake Media Detection System</h2>
+                <p>Designed a method to identify and validate the authenticity of news content using comparison scoring and integrity verification.</p>
             </a>
             <a href="project2.html" class="bg-white p-6 rounded-lg shadow-md card-hover">
-                <h2 class="text-2xl font-semibold mb-4 text-green-600"><i class="fas fa-car mr-2"></i>Anti Sleep Detection System</h2>
-                <p>Alarming System for Drivers</p>
+                <h2 class="text-2xl font-semibold mb-4 text-green-600"><i class="fas fa-car mr-2"></i>Mini Project – Anti-Sleep Detection and Alarm System</h2>
+                <p>Built a hardware-based alert system to monitor driver drowsiness and trigger alarms.</p>
             </a>
-            <a href="project3.html" class="bg-white p-6 rounded-lg shadow-md card-hover">
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md card-hover">
                 <h2 class="text-2xl font-semibold mb-4 text-yellow-600"><i class="fas fa-tree mr-2"></i>Binary Tree Path Finder</h2>
-                <p>Implementing DFS and BFS</p>
+                <p>Implemented DFS and BFS algorithms to traverse tree structures.</p>
             </a>
-            <a href="project4.html" class="bg-white p-6 rounded-lg shadow-md card-hover">
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md card-hover">
                 <h2 class="text-2xl font-semibold mb-4 text-purple-600"><i class="fas fa-project-diagram mr-2"></i>Graph Clustering</h2>
-                <p>Community Detection using Modularity Optimization</p>
+                <p>Analyzed node communities using modularity logic.</p>
             </a>
-            <a href="project5.html" class="bg-white p-6 rounded-lg shadow-md card-hover">
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md card-hover">
                 <h2 class="text-2xl font-semibold mb-4 text-red-600"><i class="fas fa-puzzle-piece mr-2"></i>Maze Solver</h2>
-                <p>Applying BFS and DFS to Find Paths</p>
+                <p>Applied graph traversal techniques to solve mazes efficiently.</p>
             </a>
-            <a href="project6.html" class="bg-white p-6 rounded-lg shadow-md card-hover">
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md card-hover">
                 <h2 class="text-2xl font-semibold mb-4 text-indigo-600"><i class="fas fa-draw-polygon mr-2"></i>Planarity Testing</h2>
-                <p>Analyzing Embeddability of Graphs in a Plane</p>
+                <p>Tested and visualized graph embeddability on planes.</p>
             </a>
-            <a href="project7.html" class="bg-white p-6 rounded-lg shadow-md card-hover">
-                <h2 class="text-2xl font-semibold mb-4 text-pink-600"><i class="fas fa-sort mr-2"></i>Topological Sorting</h2>
-                <p>Ordering Dependencies in a DAG</p>
+            <a href="#" class="bg-white p-6 rounded-lg shadow-md card-hover">
+                <h2 class="text-2xl font-semibold mb-4 text-pink-600"><i class="fas fa-sort mr-2"></i>Topological Sort</h2>
+                <p>Designed logic for ordering tasks in directed acyclic graphs.</p>
             </a>
         </div>
     </main>
 
-    <footer class="gradient-bg text-white py-8">
+    <footer class="gradient-bg text-white py-8 fixed bottom-0 left-0 w-full" style="z-index:10;">
         <div class="container mx-auto text-center">
             <div class="flex justify-center space-x-4 mb-4">
                 <a href="https://x.com/19csr080" class="text-2xl hover:text-gray-300"><i class="fab fa-twitter"></i></a>

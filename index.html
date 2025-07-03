@@ -12,16 +12,21 @@
         body {
             font-family: 'Poppins', sans-serif;
             font-size: 16px;
+            background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
         }
         .gradient-bg {
             background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
         }
         .active-nav {
-            border-bottom: 2px solid white;
+            border-bottom: 2px solid #ffd700;
+            color: #ffd700 !important;
         }
         .card-hover:hover {
             transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(75,108,183,0.15);
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            color: #222;
         }
         #scroll-to-top {
             display: none;
@@ -30,6 +35,7 @@
             right: 30px;
             z-index: 99;
             cursor: pointer;
+            box-shadow: 0 4px 12px rgba(75,108,183,0.2);
         }
         @keyframes gradientAnimation {
             0% {background-position: 0% 50%;}
@@ -42,14 +48,16 @@
             animation: gradientAnimation 15s ease infinite;
         }
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            box-shadow: 0 6px 24px rgba(75,108,183,0.18);
         }
         .profile-img:hover {
-            transform: scale(1.1);
+            transform: scale(1.12);
+            box-shadow: 0 12px 32px rgba(253,160,133,0.18);
         }
         .modal {
             display: none;
@@ -92,7 +100,7 @@
             outline: none;
         }
         .modal-content {
-            pointer-events: none; /* Prevents downloading */
+            pointer-events: none;
         }
         .floating {
             animation: float 3s ease-in-out infinite;
@@ -107,6 +115,22 @@
         }
         .rotate-3d:hover {
             transform: perspective(1000px) rotateY(0deg);
+        }
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .grid-cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+        @media (max-width: 768px) {
+            .container { padding-left: 1rem; padding-right: 1rem; }
+            .grid-cols-2, .grid-cols-4 { grid-template-columns: 1fr; }
+            .profile-img { width: 110px; height: 110px; }
+            .text-5xl { font-size: 2.25rem; }
+        }
+        @media (max-width: 480px) {
+            .container { padding-left: 0.5rem; padding-right: 0.5rem; }
+            .profile-img { width: 80px; height: 80px; }
+            .text-3xl { font-size: 1.5rem; }
+            .text-2xl { font-size: 1.125rem; }
         }
     </style>
 </head>
@@ -140,8 +164,9 @@
         <div id="particles-js" class="absolute top-0 left-0 w-full h-full"></div>
         <div class="container mx-auto text-center relative z-10">
             <img src="IMG.jpg" alt="Raghul M" class="profile-img rounded-full mx-auto mb-8 border-4 border-white shadow-lg floating" id="profile-img">
-            <h1 class="text-5xl font-bold mb-4 animate-typing"></h1>
-            <p class="text-xl mb-8">Computer Science Engineer | Python Developer | Web Enthusiast</p>
+            <h1 class="text-5xl font-bold mb-4 animate-typing">RAGHUL M</h1>
+            <p class="text-xl mb-2">📍 Erode, Tamil Nadu | 📞 +91 75399 51358 | 📧 <a href="mailto:raghul.m2.2002@gmail.com" class="underline">raghul.m2.2002@gmail.com</a></p>
+            <p class="text-xl mb-8">🔗 <a href="https://www.linkedin.com/in/raghul-m-792982245" class="underline text-blue-200">LinkedIn</a></p>
             <div class="flex justify-center space-x-4">
                 <a href="mailto:raghul.m2.2002@gmail.com" class="bg-white text-blue-600 px-6 py-2 rounded-full hover:bg-blue-100 transition duration-300">
                     <i class="far fa-envelope mr-2"></i>Email Me
@@ -149,7 +174,7 @@
                 <a href="https://github.com/yourgithub" class="bg-gray-800 text-white px-6 py-2 rounded-full hover:bg-gray-700 transition duration-300">
                     <i class="fab fa-github mr-2"></i>GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/yourlinkedin" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">
+                <a href="https://www.linkedin.com/in/raghul-m-792982245" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition duration-300">
                     <i class="fab fa-linkedin mr-2"></i>LinkedIn
                 </a>
             </div>
@@ -161,8 +186,7 @@
             <section id="about" class="mb-16">
                 <h2 class="text-3xl font-bold mb-8 text-center"><i class="fas fa-user mr-2"></i>About Me</h2>
                 <p class="text-lg text-center max-w-3xl mx-auto">
-                    I'm a passionate Computer Science Engineer with a keen interest in Python development and web technologies. 
-                    My goal is to create efficient, scalable solutions that make a positive impact in the world of technology.
+                    Detail-oriented and self-motivated B.E. Computer Science graduate with a solid foundation in software development, frontend technologies, and problem-solving. Proficient in Python, HTML, CSS, JavaScript, and SQL. Eager to apply academic knowledge and hands-on projects to real-world software development challenges. Quick learner with good communication skills, seeking an entry-level role as a Software Developer or Frontend Developer.
                 </p>
             </section>
             <section id="portfolio-sections">
